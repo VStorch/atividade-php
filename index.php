@@ -9,7 +9,7 @@
 <body>
     <h1>Login</h1>
     <div class="container">
-    <form action="cadastro_usuarios.php" method="POST">
+    <form id="formLogin" action="cadastro_usuarios.php" method="POST">
             <label for="login">Login:</label>
             <input type="text" id="login" name="login" required><br><br>
             <label for="senha">Senha:</label>
