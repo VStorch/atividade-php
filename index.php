@@ -17,5 +17,7 @@
             <input type="submit" value="Cadastrar">
         </form>
     </div>
+
+    <script src="login.js"></script>
 </body>
 </html>
