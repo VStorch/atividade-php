@@ -15,7 +15,7 @@
         $stmt -> bindParam(':nome', $nome);
         $stmt -> bindParam(':data_nasc', $data_nasc);
         $stmt -> bindParam(':email', $email);
-        $stmt -> bindParam('telefone', $telefone);
+        $stmt -> bindParam(':telefone', $telefone);
         return $stmt -> execute();
     }
 
@@ -49,7 +49,7 @@
         $con = conecta_bd();
         $stmt = $con -> prepare("SELECT * FROM usuarios");
         $stmt -> execute();
-        return $stmt -> fetch(PDO::FETCH_ASSOC);
+        return $stmt -> fetchAll(PDO::FETCH_ASSOC);
     }
 
 ?>

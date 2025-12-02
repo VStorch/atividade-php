@@ -1,3 +1,8 @@
+<?php
+    include 'conexao.php';
+    $usuarios = get_usuarios();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,17 +24,20 @@
             <th>Data de Nasc.</th>
             <th>Email</th>
             <th>Telefone</th>
+            <th>Ações</th>
         </tr>
+        <?php foreach($usuarios as $u): ?>
         <tr>
-            <td>1</td>
-            <td>João</td>
-            <td>2025/06/11</td>
-            <td>joao@gmail.com</td>
-            <td>(47) 9 9412-5363</td>
+            <td><?= $u['id'] ?></td>
+            <td><?= $u['nome'] ?></td>
+            <td><?= $u['data_nasc'] ?></td>
+            <td><?= $u['email'] ?></td>
+            <td><?= $u['telefone'] ?></td>
             <td>
-                <input type="submit" id="editar" value="Editar">
+                <a href="editar.php?id=<?= $u['id'] ?>">Editar</a>
             </td>
         </tr>
+        <?php endforeach; ?>
     </table>
 
 </body>
