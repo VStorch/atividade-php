@@ -11,10 +11,10 @@
     <div class="container">
     <form id="formLogin" action="cadastro_usuarios.php" method="POST">
             <label for="login">Login:</label>
-            <input type="text" id="login" name="login" required><br><br>
+            <input type="text" id="login" name="login" required><br>
             <label for="senha">Senha:</label>
             <input type="password" id="senha" name="senha" required><br><br>
-            <input type="submit" value="Cadastrar">
+            <input type="submit" id="entrar" value="Entrar">
         </form>
     </div>
 
