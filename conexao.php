@@ -8,7 +8,7 @@
         return new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
     }
 
-    function cadastra_usuario($nome, $data_nasc, $email, $telefone) {
+    function cadastrar_usuario($nome, $data_nasc, $email, $telefone) {
         $con = conecta_bd();
         $stmt = $con -> prepare("INSERT INTO usuarios(nome, data_nasc, email, telefone)
                                 VALUES(:nome, :data_nasc, :email, :telefone)");
@@ -18,4 +18,23 @@
         $stmt -> bindParam('telefone', $telefone);
         return $stmt -> execute();
     }
+
+    function excluir_usuario($id) {
+        $con = conecta_bd();
+        $stmt = $con -> prepare("DELETE FROM usuarios WHERE id = :id");
+        $stmt -> bindParam(':id', $id);
+        return $stmt -> execute();
+    }
+
+    function atualizar_usuario($id, $nome, $data_nasc, $email, $telefone) {
+        $con = conecta_bd();
+        $stmt = $con -> prepare("UPDATE usuarios SET nome = :nome, data_nasc = :data_nasc, email = :email, telefone = :telefone WHERE id = :id");
+        $stmt -> bindParam(':id', $id);
+        $stmt -> bindParam(':nome', $nome);
+        $stmt -> bindParam(':data_nasc', $data_nasc);
+        $stmt -> bindParam(':email', $email);
+        $stmt -> bindParam(':telefone', $telefone);
+        return $stmt -> execute();
+    }
+
 ?>
